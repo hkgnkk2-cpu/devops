@@ -11,7 +11,10 @@ jobs:
           command: |
             output=$(printf "CircleCI\n" | python hello.py)
             printf '%s\n' "$output"
-            test "$output" = "Hello, CircleCI! Your Git basics demo is working."
+            expected=$(printf '%s\n' \
+              "Hello, CircleCI! Your Git basics demo is working." \
+              "This is a new line added to the code.")
+            test "$output" = "$expected"
 
 workflows:
   test-on-push:
