@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.12
+    steps:
+      - checkout
+      - run:
+          name: Test the greeting program
+          command: |
+            output=$(printf "CircleCI\n" | python hello.py)
+            printf '%s\n' "$output"
+            test "$output" = "Hello, CircleCI! Your Git basics demo is working."
+
+workflows:
+  test-on-push:
+    jobs:
+      - test
