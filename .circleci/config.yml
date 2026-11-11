@@ -12,7 +12,7 @@ jobs:
             output=$(printf "CircleCI\n" | python hello.py)
             printf '%s\n' "$output"
             expected=$(printf '%s\n' \
-              "Hello, CircleCI! Your Git basics demo is working." \
+              "What is your name? Hello, CircleCI! Your Git basics demo is working." \
               "This is a new line added to the code.")
             test "$output" = "$expected"
 
